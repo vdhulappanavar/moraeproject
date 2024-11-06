@@ -1,6 +1,14 @@
 'use client'
 import { useState, useEffect, SetStateAction } from 'react';
 
+interface Person {
+    id: number;
+    name: string;
+    age: number;
+    city: string;
+    email: string;
+}
+
 const DataTable = () => {
     const [peopleData, setPeopleData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -80,7 +88,7 @@ const DataTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredData.map((item) => (
+                    {filteredData.map((item: Person) => (
                         <tr key={item.id} className="hover:bg-gray-50">
                             <td className="px-4 py-2 border border-gray-300">{item.id}</td>
                             <td className="px-4 py-2 border border-gray-300">{item.name}</td>
